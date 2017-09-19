@@ -28,7 +28,7 @@ function capture_screenshot( $url = '', $path = '' ) {
 		$url,
 		$path,
 	] );
-	exec( 'node screenshot.js ' . implode( ' ', $args ), $output, $return );
+	exec( 'sudo node screenshot.js ' . implode( ' ', $args ), $output, $return );
 }
 
 $screenshots = [
