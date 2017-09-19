@@ -1,15 +1,22 @@
 <?php
+/**
+ * Download an offline-ready version of the URL
+ *
+ * @param  string $url The URL to download
+ * @param  string $dir The directory to where the downloaded files should go
+ */
 function capture_html( $url = '', $dir = '' ) {
 	$wget_arg_parts = array(
 		'--page-requisites' => '',
 		'--convert-links' => '',
 		'--span-hosts' => '',
-		'--no-clobber' => '',
 		'--directory-prefix' => $dir,
 		'-e' => '',
 		'robots' => 'off',
 	);
 	$wget_args = array();
+
+	// Construct the arguments for wget command
 	foreach ( $wget_arg_parts as $key => $arg ) {
 		if ( $arg ) {
 			$key .= '=' . escapeshellarg( $arg );
@@ -17,12 +24,16 @@ function capture_html( $url = '', $dir = '' ) {
 		$wget_args[] = $key;
 	}
 	$wget_args = implode( ' ', $wget_args );
-
-	// Download an offline-ready capture of the URL.
-	// print( "wget $wget_args " . escapeshellarg( $url ) );
 	exec( "wget $wget_args " . escapeshellarg( $url ), $output, $return );
 }
 
+/**
+ * Capture a full page screenshot of a given URL
+ * at a desktop size and a mobile size
+ *
+ * @param  string $url  The URL to download
+ * @param  string $path The path where the screenshot should be saved
+ */
 function capture_screenshot( $url = '', $path = '' ) {
 	$args = array_map( 'escapeshellarg', [
 		$url,
@@ -34,19 +45,18 @@ function capture_screenshot( $url = '', $path = '' ) {
 $screenshots = [
 	'billy-penn' => [
 		'homepage' => 'https://billypenn.com/',
-		'article' => 'https://billypenn.com/2017/09/18/phillys-holocaust-memorial-is-getting-a-7-million-overhaul/',
+		'article'  => 'https://billypenn.com/2017/09/18/phillys-holocaust-memorial-is-getting-a-7-million-overhaul/',
 	],
 	'the-incline' => [
 		'homepage' => 'https://theincline.com/',
-		'article' => 'https://theincline.com/2017/09/18/which-pittsburgh-neighborhoods-claim-the-most-sidewalk-parking-tickets/',
+		'article'  => 'https://theincline.com/2017/09/18/which-pittsburgh-neighborhoods-claim-the-most-sidewalk-parking-tickets/',
 	],
 	'denverite' => [
 		'homepage' => 'https://www.denverite.com/',
-		'article' => 'https://www.denverite.com/the-broncos-42775/',
+		'article'  => 'https://www.denverite.com/the-broncos-42775/',
 	],
 ];
 
-$the_start_time = microtime();
 $root = dirname( __FILE__ );
 foreach ( $screenshots as $site => $data ) {
 	foreach ( $data as $page_type => $url ) {
@@ -57,9 +67,9 @@ foreach ( $screenshots as $site => $data ) {
 		$filename = $site . '-' . $page_type . '-' . date( 'Y-m-d' );
 		$path = $dir . $filename;
 
-		echo '--------------------------' . PHP_EOL;
+		echo '-----------------------' . PHP_EOL;
 		echo  $site . ' ' . $page_type . PHP_EOL;
-		echo '--------------------------' . PHP_EOL;
+		echo '-----------------------' . PHP_EOL;
 
 		capture_screenshot( $url, $path );
 
@@ -70,5 +80,3 @@ foreach ( $screenshots as $site => $data ) {
 		capture_html( $url, $dir );
 	}
 }
-$the_end_time = microtime();
-echo 'Finished in ' . $the_end_time - $the_start_time . ' seconds.' . PHP_EOL;
