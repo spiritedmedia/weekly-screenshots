@@ -12,7 +12,8 @@ const thePath = process.argv[3];
     // On the server we need to run in no-sandbox mode which could be bad
     // See https://github.com/GoogleChrome/puppeteer/issues/290#issuecomment-327233672
     const browser = await puppeteer.launch({
-            args: ["--no-sandbox", "--disable-setuid-sandbox"]
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        ignoreHTTPSErrors: true,
     });
     const page = await browser.newPage();
 
