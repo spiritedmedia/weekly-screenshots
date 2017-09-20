@@ -24,6 +24,7 @@ const thePath = process.argv[3];
     });
 
     await page.goto(theURL, {
+        timeout: 90000,
         waitUntil: 'networkidle',
         networkIdleTimeout: 2000,
     });
@@ -47,6 +48,7 @@ const thePath = process.argv[3];
     await page.setUserAgent( 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Version/10.0 Mobile/14D27 Safari/602.1' );
 
     await page.reload({
+        timeout: 90000,
         waitUntil: 'networkidle',
         networkIdleTimeout: 2000,
     });
