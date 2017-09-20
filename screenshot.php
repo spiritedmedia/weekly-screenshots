@@ -11,6 +11,7 @@ function capture_html( $url = '', $dir = '' ) {
 		'--convert-links' => '',
 		'--span-hosts' => '',
 		'--directory-prefix' => $dir,
+		'--quiet' => '',
 		'-e' => '',
 		'robots' => 'off',
 	);
