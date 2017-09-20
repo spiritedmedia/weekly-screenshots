@@ -8,8 +8,10 @@
 
 cd /var/www/weekly-screenshot.localhost/weekly-screenshots
 
-# Run the script
-/usr/bin/php screenshot.php
+# Run the scripts
+/usr/bin/php screenshot.php billy-penn
+/usr/bin/php screenshot.php the-incline
+/usr/bin/php screenshot.php denverite
 
 # Add everything and commit
 

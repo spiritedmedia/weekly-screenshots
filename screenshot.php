@@ -57,6 +57,15 @@ $screenshots = [
 	],
 ];
 
+// Only run for a given site
+if ( ! empty( $argv[1] ) && isset( $screenshots[ $argv[1] ] ) ) {
+	$key = $argv[1];
+	$site_screenshots = $screenshots[ $key ];
+	$screenshots = [
+		$key => $site_screenshots,
+	];
+}
+
 $root = dirname( __FILE__ );
 foreach ( $screenshots as $site => $data ) {
 	foreach ( $data as $page_type => $url ) {
