@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Overpass';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Overpass Light Italic'), local('Overpass-LightItalic'), url(../fonts.gstatic.com/s/overpass/v3/qFdC35WCmI96Ajtm81Gga3LI0hgoiw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Overpass Italic'), local('Overpass-Italic'), url(../fonts.gstatic.com/s/overpass/v3/qFdB35WCmI96Ajtm81GgY9nqwg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Overpass Bold Italic'), local('Overpass-BoldItalic'), url(../fonts.gstatic.com/s/overpass/v3/qFdC35WCmI96Ajtm81Gga2LP0hgoiw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Overpass Light'), local('Overpass-Light'), url(../fonts.gstatic.com/s/overpass/v3/qFdA35WCmI96Ajtm81kOcc7N4h8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Overpass Regular'), local('Overpass-Regular'), url(../fonts.gstatic.com/s/overpass/v3/qFdH35WCmI96Ajtm81GlU94.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Overpass SemiBold'), local('Overpass-SemiBold'), url(../fonts.gstatic.com/s/overpass/v3/qFdA35WCmI96Ajtm81l6d87N4h8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Overpass Bold'), local('Overpass-Bold'), url(../fonts.gstatic.com/s/overpass/v3/qFdA35WCmI96Ajtm81keds7N4h8.ttf) format('truetype');
+}
